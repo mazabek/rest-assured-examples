@@ -25,7 +25,7 @@ import static org.hamcrest.Matchers.lessThan;
 public class BasicOkTest {
 
     @Test
-    public void checkStatus() {
+    public void shouldReturnStatus200() {
         when()
                 .get("/ok")
                 .then()
@@ -33,7 +33,7 @@ public class BasicOkTest {
     }
 
     @Test
-    public void checkBodyFieldBasicInformation() {
+    public void shouldHaveInformationOnStatus200() {
         when()
                 .get("/ok")
                 .then()
@@ -44,7 +44,7 @@ public class BasicOkTest {
     }
 
     @Test
-    public void extractingPartOfBody() {
+    public void shouldBeExecutedInLessThanOneSecond() {
         Response response =
                 when()
                         .get("/ok")

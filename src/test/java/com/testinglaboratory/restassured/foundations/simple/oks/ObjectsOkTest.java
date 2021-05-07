@@ -30,11 +30,6 @@ public class ObjectsOkTest {
 
     private Response response;
 
-    @BeforeAll
-    public static void setUp() {
-        RestAssured.baseURI = "http://localhost:8080";
-    }
-
     @BeforeEach
     public void methodSetUp() {
         response = when()
@@ -42,7 +37,7 @@ public class ObjectsOkTest {
     }
 
     @Test
-    public void checkStatus() {
+    public void shouldReturnStatus200() {
         response.then()
                 .statusCode(not(404))
                 .statusCode(not(500))
@@ -50,7 +45,7 @@ public class ObjectsOkTest {
     }
 
     @Test
-    public void checkBodyFieldBasicInformation() {
+    public void shouldHaveInformationOnStatus200() {
         response
                 .then()
                 .body("basicInformation",
@@ -59,7 +54,7 @@ public class ObjectsOkTest {
     }
 
     @Test
-    public void extractingPartOfBody() {
+    public void shouldBeExecutedInLessThanOneSecond() {
         response
                 .then()
                 .body("basicInformation", equalTo("This is GET example for status code 200"),
