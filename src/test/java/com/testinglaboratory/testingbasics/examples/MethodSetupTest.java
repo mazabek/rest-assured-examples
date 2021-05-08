@@ -19,19 +19,27 @@ public class MethodSetupTest {
 
     @Test
     public void shouldBeTraditional(){
-        assertEquals(pie.getFlavour(), "Vanilla");
-        assertEquals(pie.getFilling(), "Love");
-        assertEquals(pie.getTopping(), Optional.empty());
+        assertEquals("Vanilla", pie.getFlavour());
+        assertEquals("Love", pie.getFilling());
+        assertEquals(Optional.empty(), pie.getTopping());
     }
 
     @Test
     @ParameterizedTest
     @ValueSource(strings = {"sprinkles", "powder", "chocolate"})
     public void shouldBeToppedWithSomething(String topping){
-        assertEquals(pie.getFlavour(), "Vanilla");
-        assertEquals(pie.getFilling(), "Love");
+        assertEquals("Vanilla", pie.getFlavour());
+        assertEquals("Love", pie.getFilling());
         pie.setTopping(Optional.ofNullable(topping));
         assertEquals(pie.getTopping().orElse("nothing"), topping);
+    }
+
+    @Test
+    public void shouldBeFlavourful(){
+        assertEquals("Vanilla", pie.getFlavour());
+        assertEquals("Love", pie.getFilling());
+        pie.setFlavour("Blueberry");
+        assertEquals("Strawberry", pie.getFlavour(),"https://www.youtube.com/watch?v=2EWWL3niBWY");
     }
 
 }

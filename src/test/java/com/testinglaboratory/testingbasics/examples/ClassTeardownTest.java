@@ -41,6 +41,7 @@ public class ClassTeardownTest {
     public static void cleanUp(){
         //It's used to clean up after test - e.g. close the browser if needed
         //or return DB entry to its original state
+        //or... resetting reactor IYKWIM ;)
         TheIncrementor.setValue(0);
     }
 
