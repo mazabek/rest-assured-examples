@@ -5,10 +5,7 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpStatus;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.List;
 import java.util.Locale;
@@ -22,9 +19,10 @@ import static org.hamcrest.Matchers.equalTo;
 @Slf4j
 public class QueryParamsPeopleServiceTest {
 
-    @DisplayName("Shameful test")
+    @DisplayName("Shameful test") //nazwa niezależna od metody
     @Tag("Known Issue")
     @Test
+    @Disabled
     public void shouldGreetPersonWithFirstNameAndLastName() {
         given().queryParam("first_name", "Tomasz")
                 .queryParam("last_name", "Kowalski")
@@ -88,7 +86,7 @@ public class QueryParamsPeopleServiceTest {
     public void shouldReturnListOfAllPeople() {
         Response response = when()
                 .get("/get_all_people")
-                .andReturn();
+                .then().log().everything().extract().response();
         Map<String, Map<String, String>> people = response.body().jsonPath().getMap(".");
         log.info(String.valueOf(people));
         assertThat(people)

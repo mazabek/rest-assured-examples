@@ -29,7 +29,6 @@ import static org.hamcrest.Matchers.not;
 public class ObjectsOkTest {
 
     private Response response;
-
     @BeforeEach
     public void methodSetUp() {
         response = when()
