@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.assertj.examples.AssumptionExamples
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 7, Time elapsed: 1.362 s - in org.assertj.examples.AssumptionExamples
